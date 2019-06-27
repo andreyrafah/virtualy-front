@@ -1,12 +1,11 @@
 <template>
  <div>
-  PRICIPAL
+  USUARIO CONFIG
  </div>
 </template>
 
 <script>
-
   export default {
-    middleware: 'auth'
+    middleware: 'auth',
   }
 </script>

@@ -44,8 +44,6 @@
 
 <script>
     import newAccount from './newAccount'
-    import nuxt from "../../.nuxt/components/nuxt";
-    import axios from "../../.nuxt/axios";
     export default {
       components: { newAccount },
       data () {

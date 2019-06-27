@@ -1,66 +1,50 @@
 <template>
-    <v-layout>
-        <v-flex xs6>
-            <v-card width="100%">
-                <v-flex text-xs-center>
-                    <v-form
-                            ref="form"
-                            v-model="form"
-                            class="pa-3 pt-4"
-                    >
-                        <v-textarea
-                                outline
-                                name="input-7-4"
-                                label="Mensagem"
-                                counter="160"
-                                value=""
-                        ></v-textarea>
-                        <v-layout align-center justify-space-between row fill-height>
-                            <v-flex xs5>
-                                <v-text-field
-                                        v-model="phone"
-                                        label="Telefone"
-                                        :mask="maskPhone"
-                                        placeholder="(DD) NUMERO"
-                                ></v-text-field>
-                            </v-flex>
-                            <v-flex xs5>
-                                <v-switch v-model="flash" color="green" label="Flash"></v-switch>
-                            </v-flex>
-                        </v-layout>
-                    </v-form>
-                </v-flex>
-                <v-divider></v-divider>
-                <v-card-actions>
-                    <v-btn
-                            flat
-                            @click="$refs.form.reset()"
-                    >
-                        Clear
-                    </v-btn>
-                    <v-spacer></v-spacer>
-                    <v-btn fab color="green">
-                        <v-icon color="white">send</v-icon>
-                    </v-btn>
-                </v-card-actions>
-                <v-dialog
-                        v-model="dialog"
-                        absolute
-                        max-width="400"
-                        persistent
-                >
-                </v-dialog>
-            </v-card>
-        </v-flex>
-    </v-layout>
+    <div>
+        <v-tabs
+                v-model="active"
+                color="primary-virtualy"
+                dark
+                slider-color="second-virtualy"
+        >
+            <v-tab
+                    v-for="tab in tabList"
+                    :key="tab.id"
+                    ripple
+            >
+                {{ tab.label }}
+
+            </v-tab>
+            <v-tab-item
+                    v-for="tab in tabList"
+                    :key="tab.id"
+            >
+                <component v-bind:is="tab.component"></component>
+            </v-tab-item>
+        </v-tabs>
+    </div>
 </template>
 
 <script>
+  import AppSendUnique from '@/components/Sms/send-unique.vue'
+  import AppMultiple from '@/components/Sms/multiple.vue'
+  import AppReports from '@/components/Sms/reports.vue'
+
   export default {
+    middleware: 'auth',
+    components: {
+      AppSendUnique,
+      AppMultiple,
+      AppReports
+    },
     data() {
       return {
-        phone: null,
-        flash: false
+        active: null,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        tabList: [
+          {id: 1, label: 'Envio Avulso', component: 'app-send-unique'},
+          {id: 2, label: 'Envio em Massa', component: 'app-multiple'},
+          {id: 3, label: 'Relatorio', component: 'app-reports'},
+        ]
       }
     }
   }

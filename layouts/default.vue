@@ -42,9 +42,9 @@
             </v-content>
         </div>
         <v-content v-else>
-            <v-container-fluid>
+            <v-container fluid>
                 <nuxt/>
-            </v-container-fluid>
+            </v-container>
         </v-content>
 
         <v-footer

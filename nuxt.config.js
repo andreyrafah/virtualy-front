@@ -59,17 +59,18 @@ export default {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'http://api/api'
+    //baseURL: 'http://api/api'
+    baseURL: 'http://18.228.172.232:8080/api'
   },
   auth: {
     strategies: {
       local: {
         endpoints: {
           login: {
-            url: "http://api/api/login", method: 'post', propertyName: 'success.token'
+            url: "/login", method: 'post', propertyName: 'success.token'
           },
           user: {
-            url: "http://api/api/user", method: 'get', propertyName: 'success'
+            url: "/user", method: 'get', propertyName: 'success'
           }
         },
         tokenRequired: true,

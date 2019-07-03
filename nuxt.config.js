@@ -1,9 +1,9 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package'
+require('dotenv').config()
 
 export default {
   mode: 'spa',
-
   /*
   ** Headers of the page
   */
@@ -59,8 +59,7 @@ export default {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    //baseURL: 'http://api/api'
-    baseURL: 'http://18.228.172.232:8080/api'
+    baseURL: process.env.BASE_URL
   },
   auth: {
     strategies: {
@@ -78,8 +77,8 @@ export default {
       }
     },
     redirect: {
-      login: '/login',
-      home: '/'
+      login: '/',
+      user: '/'
     }
   },
   /*

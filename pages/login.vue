@@ -7,7 +7,7 @@
 <script>
   import AppLogin from '@/components/Login/Login.vue'
   export default {
-    middleware: ['guest'],
+    middleware: 'guest',
     components: {
       AppLogin
     }

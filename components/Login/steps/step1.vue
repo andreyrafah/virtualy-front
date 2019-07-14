@@ -6,14 +6,14 @@
                 v-model="valid"
             >
                 <v-text-field
-                        v-model="user.phone"
+                        v-model="newUser.phone"
                         label="Telefone"
                         :rules="rules.phone"
                         :mask="maskPhone"
                         placeholder="(DD) NUMERO"
                 ></v-text-field>
                 <v-text-field
-                        v-model="user.email"
+                        v-model="newUser.email"
                         :rules="rules.email"
                         label="E-mail"
                         required
@@ -28,7 +28,7 @@
       data () {
         return {
           valid: false,
-          user: {
+          newUser: {
             phone: '',
             email: ''
           },
@@ -45,7 +45,7 @@
         }
       },
       watch: {
-        user: {
+        newUser: {
           deep: true,
           handler (val) {
             const emit = { ...val }
@@ -57,7 +57,7 @@
       },
       computed: {
         maskPhone () {
-          const thirdNumberPhone = this.user.phone.substr(2, 1)
+          const thirdNumberPhone = this.newUser.phone.substr(2, 1)
 
           if (thirdNumberPhone < 7) {
             return '## ####-####'

@@ -14,13 +14,13 @@
             <v-card>
                 <v-card-text>
                     <v-text-field
-                            v-model="user.email"
+                            v-model="loginUser.email"
                             :rules="rules.email"
                             label="E-mail"
                             required
                     ></v-text-field>
                     <v-text-field
-                            v-model="user.password"
+                            v-model="loginUser.password"
                             :append-icon="show1 ? 'visibility' : 'visibility_off'"
                             :type="show1 ? 'text' : 'password'"
                             name="input-10-1"
@@ -48,7 +48,7 @@
       components: { newAccount },
       data () {
         return {
-          user: {
+          loginUser: {
             email: 'andrey.rafah@hotmail.com',
             password: '741852',
           },
@@ -63,7 +63,7 @@
       },
       methods: {
         async login () {
-          await this.$auth.login({data: this.user})
+          await this.$auth.login({data: this.loginUser})
 
           this.$router.push({ name: 'index'});
         }

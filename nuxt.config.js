@@ -77,8 +77,8 @@ export default {
       }
     },
     redirect: {
-      login: '/',
-      user: '/'
+      login: '/login',
+      home: '/index'
     }
   },
   /*

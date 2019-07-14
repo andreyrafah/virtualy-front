@@ -1,6 +1,6 @@
 <template>
     <v-app>
-        <div v-if="isAuthenticated">
+        <div v-if="loggedIn">
             <v-navigation-drawer
 
                     v-model="drawer"
@@ -84,7 +84,7 @@
           {
             icon: 'apps',
             title: 'Home',
-            to: '/index'
+            to: '/'
           },
           {
             icon: 'sms',

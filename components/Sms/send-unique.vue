@@ -18,7 +18,6 @@
                         <v-text-field
                                 v-model="phone"
                                 label="Telefone"
-                                :mask="maskPhone"
                                 placeholder="(DD) NUMERO"
                         ></v-text-field>
                     </v-flex>
@@ -50,7 +49,8 @@
     data() {
       return {
         phone: null,
-        flash: false
+        flash: false,
+        form: null
       }
     }
   }
